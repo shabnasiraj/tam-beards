@@ -37,5 +37,14 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 
+/*
+| Constants for assets (JS, IMAGES, CSS etc)
+| 
+*/
+
+define('JS_PATH','/assets/js/');
+define('IMAGE_PATH','/assets/images/');
+define('CSS_PATH',APP_PATH.'/assets/css/');
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

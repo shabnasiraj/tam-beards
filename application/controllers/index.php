@@ -10,14 +10,12 @@
 
 		public function index(){
 
+			//Signup  page here
 
-			echo "This shit is working!!";
+			$this->load->view('constants/header');
+			$this->load->view('qr/generator');
+			$this->load->view('constants/footer');
 
-		}
-
-		public function createAd(){
-
-			echo "Create Ad here";
 
 		}
 
