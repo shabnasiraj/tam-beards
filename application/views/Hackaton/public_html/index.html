@@ -11,16 +11,12 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
         <script type="text/javascript" src="js/qrcode.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
-        <div id="sample"></div>
+        <div id="qrcontainer"><div id="qrcode"></div></div>
         <script type="text/javascript">
-            var typeNumber = 4;
-            var errorCorrectionLevel = 'L';
-            var qr = qrcode(typeNumber, errorCorrectionLevel);
-            qr.addData('123');
-            qr.make();
-            $("#sample").html(qr.createImgTag());
+            $('#qrcode').qrcode({width: 300, height: 300, text: "123"});
         </script>
     </body>
 </html>
