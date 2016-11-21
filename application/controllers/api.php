@@ -14,38 +14,27 @@
 	// gets the query string from the url, 
 	// the query string should have qr_id and language_id or language_short_code
 	public function decode(){
-
 		$lang 		=	$_GET['lang'];
 		$qr_code	=	$_GET['qr_code'];
-
-		//$this->load->view('constants/header');
+		
 		if($text = $this->api->getText($lang,$qr_code)){
-
 			$data['value'] = $text['ad_string'];
-			//$this->load->view('constants/body',$data);
+			echo mb_convert_encoding($data['value'],'HTML-ENTITIES','UTF-8');
 
-			echo $data['value'];
-
-		}else{
-
-			$data['value'] = "Sorry bro! No data found!";
-			$this->load->view('constants/body',$data);
+		}else{		
+			echo "No message of this type bro";
 		}
-
-		/*$this->load->view('constants/footer');*/
 	}
 
 	public function create(){
-
 		$lang_id = $this->input->post("lang");
 		$text 	 = $this->input->post("text");
-
-		$this->api->incrementQR();
-
 		if($this->api->insertAd($lang_id,$text))
-			echo "Inserted";
+			echo $this->api->getLatestQRId();
 		else
-			echo "Not Inserted";
+			echo "Error: Not Inserted";
 	}
+
+
 
 }
